@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>My Todo List</h1>
+        <p>Atur tugas, atur hidup.</p>
+        <div class="header-line"></div>
+    </header>
+
+    <main class="container">
+
+        <section class="todo-panel">
+            <h2>My Todos</h2>
+
+            <div class="todo-item">
+                <h3>Mencuci baju</h3>
+                <span class="completed">Completed</span>
+            </div>
+            
+            <div class="todo-item">
+                <h3>Mengerjakan Praktikum Jarkom</h3>
+                <span class="progress">On Progress</span>
+            </div>
+            
+            <div class="todo-item">
+                <h3>Mangerjakan Tugas pak Rully</h3>
+                <span class="not-started">Not Completed</span>
+            </div>
+        </section>
+        
+        <div class="right-column">
+            
+            <aside class="detail-panel">
+                <h2>Todo Detail</h2>
+
+                <form>
+                    <label for="detail-title">Todo Title</label>
+                    <input type="text" id="detail-title" value="Learn CSS" readonly>
+
+                    <label for="detail-description">Description</label>
+                    <textarea id="detail-description" rows="3" readonly>Mempelajari dasar-dasar styling, flexbox, dan grid untuk mempercantik halaman web.</textarea>
+                    
+                    <label for="detail-deadline">Deadline</label>
+                    <input type="text" id="detail-deadline" value="20/10/2026" readonly>
+
+                    <label for="detail-status">Status Progress</label>
+                    <select id="detail-status">
+                        <option value="not-started">Belum Selesai</option>
+                        <option value="progress" selected>On Progress</option>
+                        <option value="completed">Selesai</option>
+                    </select>
+
+                    <div class="button-group">
+                        <button type="button" class="btn">Hapus</button>
+                        <button type="button" class="btn">Simpan Perubahan</button>
+                    </div>
+                </form>
+            </aside>
+
+            <aside class="create-panel">
+                <h2>Create New Todo</h2>
+
+                <form>
+                    <label for="new-title">Todo Title</label>
+                    <input type="text" id="new-title" placeholder="Enter todo title">
+
+                    <label for="new-description">Description</label>
+                    <textarea id="new-description" rows="3" placeholder="Enter description"></textarea>
+
+                    <label for="new-deadline">Deadline</label>
+                    <input type="date" id="new-deadline">
+
+                     <div class="button-group">
+                        <button type="button" class="btn">Add Todo Type</button>
+                    </div>
+                </form>
+            </aside>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

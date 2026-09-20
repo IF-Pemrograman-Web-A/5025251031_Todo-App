@@ -173,3 +173,44 @@ select {
         width: 100%;
     }
 }
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.btn-delete {
+    background-color: #d9534f;
+}
+
+.btn-delete:hover {
+    background-color: #c9302c;
+}
+
+body.dark-mode {
+    background-color: #1a202c;
+    color: #e2e8f0;
+}
+
+body.dark-mode header {
+    background-color: #0f172a;
+}
+
+body.dark-mode .todo-panel,
+body.dark-mode .detail-panel,
+body.dark-mode .create-panel {
+    background-color: #2d3748;
+    color: #f7fafc;
+}
+
+body.dark-mode .todo-item {
+    border-color: #4a5568;
+    background-color: #1a202c;
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+    background-color: #1a202c;
+    color: #ffffff;
+    border-color: #4a5568;
+}

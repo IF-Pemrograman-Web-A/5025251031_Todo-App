@@ -11,6 +11,7 @@
     <header>
         <h1>My Todo List</h1>
         <p>Atur tugas, atur hidup.</p>
+        <button id="theme-toggle" class="btn" style="margin-top: 10px;"> Dark Mode</button>
         <div class="header-line"></div>
     </header>
 
@@ -19,20 +20,7 @@
         <section class="todo-panel">
             <h2>My Todos</h2>
 
-            <div class="todo-item">
-                <h3>Mencuci baju</h3>
-                <span class="completed">Completed</span>
-            </div>
-            
-            <div class="todo-item">
-                <h3>Mengerjakan Praktikum Jarkom</h3>
-                <span class="progress">On Progress</span>
-            </div>
-            
-            <div class="todo-item">
-                <h3>Mangerjakan Tugas pak Rully</h3>
-                <span class="not-started">Not Completed</span>
-            </div>
+            <div id="todo-container"></div>
         </section>
         
         <div class="right-column">
@@ -40,26 +28,26 @@
             <aside class="detail-panel">
                 <h2>Todo Detail</h2>
 
-                <form>
+                <form id="detail-form">
                     <label for="detail-title">Todo Title</label>
-                    <input type="text" id="detail-title" value="Mengerjakan Praktikum Jarkom" readonly>
+                    <input type="text" id="detail-title" readonly placeholder="Klik item todo di kiri untuk melihat/mengedit">
 
                     <label for="detail-description">Description</label>
-                    <textarea id="detail-description" rows="3" readonly>Mengerjakan praktikum modul pertama jarkom.</textarea>
+                    <textarea id="detail-description" rows="3" readonly></textarea>
                     
                     <label for="detail-deadline">Deadline</label>
-                    <input type="text" id="detail-deadline" value="20/10/2026" readonly>
+                    <input type="text" id="detail-deadline" readonly>
 
                     <label for="detail-status">Status Progress</label>
                     <select id="detail-status">
                         <option value="not-started">Belum Selesai</option>
-                        <option value="progress" selected>On Progress</option>
+                        <option value="progress">On Progress</option>
                         <option value="completed">Selesai</option>
                     </select>
 
                     <div class="button-group">
-                        <button type="button" class="btn">Hapus</button>
-                        <button type="button" class="btn">Simpan Perubahan</button>
+                        <button type="button" id="btn-delete-detail" class="btn btn-delete">Hapus</button>
+                        <button type="button" id="btn-save-detail" class="btn">Simpan Perubahan</button>
                     </div>
                 </form>
             </aside>
@@ -67,9 +55,9 @@
             <aside class="create-panel">
                 <h2>Create New Todo</h2>
 
-                <form>
+                <form id="create-todo-form">
                     <label for="new-title">Todo Title</label>
-                    <input type="text" id="new-title" placeholder="Enter todo title">
+                    <input type="text" id="new-title" placeholder="Enter todo title" required>
 
                     <label for="new-description">Description</label>
                     <textarea id="new-description" rows="3" placeholder="Enter description"></textarea>
@@ -78,7 +66,7 @@
                     <input type="date" id="new-deadline">
 
                      <div class="button-group">
-                        <button type="button" class="btn">Add Todo Type</button>
+                        <button type="submit" class="btn">Add Todo</button>
                     </div>
                 </form>
             </aside>
@@ -87,5 +75,6 @@
 
     </main>
 
+    <script src="index.js"></script>
 </body>
 </html>

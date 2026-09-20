@@ -5,14 +5,23 @@
 - Kelas : Pemrograman Web (A)
 
 ## Deskripsi
-Repositori ini berisi proyek pembuatan antarmuka pengguna statis untuk aplikasi Todo List yang dikembangkan menggunakan HTML dan CSS murni guna memenuhi tugas mata kuliah Pemrograman Web. Proyek ini menerapkan struktur elemen semantik HTML serta membagi tata letak konten menjadi dua panel utama menggunakan Flexbox atau Grid, di mana panel kiri menampilkan daftar tugas dan panel kanan memuat detail serta form pembuatan tugas baru. Selain itu, antarmuka ini dirancang agar responsif pada perangkat desktop maupun seluler serta menggunakan berkas eksternal `index.html` dan `style.css`. 
+Meneruskan website yang saya buat minggu sebelumnya, pada update ini ditambahkan versi javascript-nya. Dimana yang pertama ada fitur untuk mengubah light mode menjadi dark mode, disini saya juga membuat css baru untuk mode tersebut. Sekarang juga bisa melakukan penambahan, penghapusan dan pengeditan pada task yang ada. Selain itu saya menggunakan beberapa event handler guna menangkap input pengguna saat membuat daftar Todo baru. Hasilnya langsung muncul di layar detik itu juga berkat manipulasi DOM tanpa perlu memuat ulang halaman (zero-refresh). 
 
 ## Link Website
 [LINK WEBSITE](https://if-pemrograman-web-a.github.io/5025251031_Todo-App/)
 
 ## Preview
-### 1. Desktop Preview
-![](img/dekstop.png)
+### 1. Light Mode Preview
+![](img/lightmode.png)
 
-### 2. Mobile Preview
-![](img/mobile.jpeg)
+### 2. Dark Mode Preview
+![](img/dark.png)
+
+### 3. Completed Preview
+![](img/completed.png)
+
+### 4. Delete Task Preview
+![](img/deleted.png)
+
+### 5. Add Task Preview
+![](img/add.png)

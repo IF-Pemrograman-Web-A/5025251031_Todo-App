@@ -1,4 +1,4 @@
-# [E01] The Style Warrior - ToDo App
+# [E02] The Style Warrior - ToDo App
 ## Identitas
 - Nama : Najwan Sigit Cahya Buana
 - NRP : 5025251031

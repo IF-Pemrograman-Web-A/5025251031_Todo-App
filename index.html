@@ -1,63 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo App</title>
     <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#0a403d">
 </head>
 <body>
-
     <header>
         <h1>My Todo List</h1>
         <p>Atur tugas, atur hidup.</p>
-        <button id="theme-toggle" class="btn" style="margin-top: 10px;"> Dark Mode</button>
+        <button id="theme-toggle" class="btn btn-sm" aria-label="Ubah tema gelap atau terang"> Dark Mode</button>
         <div class="header-line"></div>
     </header>
 
-    <main class="container">
-
-        <section class="todo-panel">
-            <h2>My Todos</h2>
-
-            <div id="todo-container"></div>
+    <main id="main-content" class="container" tabindex="-1">
+        <section class="todo-panel" aria-labelledby="todo-heading">
+            <h2 id="todo-heading">My Todos</h2>
+            <div id="todo-container" aria-live="polite" role="list"></div>
         </section>
         
         <div class="right-column">
-            
-            <aside class="detail-panel">
-                <h2>Todo Detail</h2>
-
+            <aside class="detail-panel" aria-labelledby="detail-heading">
+                <h2 id="detail-heading">Todo Detail</h2>
                 <form id="detail-form">
                     <label for="detail-title">Todo Title</label>
-                    <input type="text" id="detail-title" readonly placeholder="Klik item todo di kiri untuk melihat/mengedit">
+                    <input type="text" id="detail-title" readonly placeholder="Klik item todo di kiri untuk melihat">
 
                     <label for="detail-description">Description</label>
                     <textarea id="detail-description" rows="3" readonly></textarea>
                     
                     <label for="detail-deadline">Deadline</label>
-                    <input type="text" id="detail-deadline" readonly>
+                    <input type="date" id="detail-deadline" readonly>
+
+                    <label for="detail-notif-time">Waktu Notifikasi</label>
+                    <input type="time" id="detail-notif-time" readonly>
+
+                    <p style="margin-top: 10px; font-weight: bold; font-size: 0.9rem;">Gambar Todo</p>
+                    <img id="detail-image-preview" src="" alt="Preview gambar detail todo" style="display: none; max-width: 100%; border-radius: 5px;">
 
                     <label for="detail-status">Status Progress</label>
-                    <select id="detail-status">
+                    <select id="detail-status" disabled>
                         <option value="not-started">Belum Selesai</option>
                         <option value="progress">On Progress</option>
                         <option value="completed">Selesai</option>
                     </select>
 
                     <div class="button-group">
-                        <button type="button" id="btn-delete-detail" class="btn btn-delete">Hapus</button>
-                        <button type="button" id="btn-save-detail" class="btn">Simpan Perubahan</button>
+                        <button type="button" id="btn-delete-detail" class="btn btn-delete" disabled aria-label="Hapus Todo">Hapus</button>
+                        <button type="button" id="btn-save-detail" class="btn" disabled aria-label="Simpan perubahan detail Todo">Simpan Perubahan</button>
                     </div>
                 </form>
             </aside>
 
-            <aside class="create-panel">
-                <h2>Create New Todo</h2>
-
+            <aside class="create-panel" aria-labelledby="create-heading">
+                <h2 id="create-heading">Create New Todo</h2>
                 <form id="create-todo-form">
                     <label for="new-title">Todo Title</label>
-                    <input type="text" id="new-title" placeholder="Enter todo title" required>
+                    <input type="text" id="new-title" placeholder="Enter todo title" required aria-required="true">
 
                     <label for="new-description">Description</label>
                     <textarea id="new-description" rows="3" placeholder="Enter description"></textarea>
@@ -65,16 +66,28 @@
                     <label for="new-deadline">Deadline</label>
                     <input type="date" id="new-deadline">
 
+                    <label for="new-notif-time">Waktu Notifikasi</label>
+                    <input type="time" id="new-notif-time">
+
+                    <!-- Media Capture API Section -->
+                    <p style="margin-top: 10px; font-weight: bold; font-size: 0.9rem;">Ambil Gambar (Kamera)</p>
+                    <video id="camera-video" width="100%" autoplay playsinline style="display: none; background: #000; border-radius:5px;"></video>
+                    <canvas id="camera-canvas" style="display: none; width: 100%;"></canvas>
+                    <img id="new-image-preview" src="" alt="Hasil tangkapan kamera" style="display: none; margin-top: 10px; max-width: 100%; border-radius: 5px;">
+                    
+                    <div class="button-group" style="margin-top: 5px; justify-content: flex-start;">
+                        <button type="button" id="btn-start-camera" class="btn btn-sm">Buka Kamera</button>
+                        <button type="button" id="btn-take-photo" class="btn btn-sm" style="display:none;">Jepret Foto</button>
+                    </div>
+                    <input type="hidden" id="new-image-data">
+
                      <div class="button-group">
-                        <button type="submit" class="btn">Add Todo</button>
+                        <button type="submit" class="btn" aria-label="Tambah Todo Baru">Add Todo</button>
                     </div>
                 </form>
             </aside>
-
         </div>
-
     </main>
-
     <script src="index.js"></script>
 </body>
 </html>

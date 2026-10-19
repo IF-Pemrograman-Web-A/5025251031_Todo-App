@@ -27,7 +27,6 @@ header h1 { margin: 0; font-size: 1.75rem; letter-spacing: 2px; }
 
 .container { display: flex; gap: 20px; max-width: 1200px; margin: 30px auto; padding: 0 20px; }
 
-/* Sidebar Menu */
 .sidebar-menu {
     background-color: #def2f1;
     padding: 20px;

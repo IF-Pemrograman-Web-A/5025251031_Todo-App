@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'create') {
     $type = $_POST['type'] ?? 'personal';
     $image_path = null;
 
-    // File Handling Upload Gambar
+    
     if (isset($_FILES['image_file']) && $_FILES['image_file']['error'] === UPLOAD_ERR_OK) {
         $fileTmpPath = $_FILES['image_file']['tmp_name'];
         $fileName = time() . '_' . basename($_FILES['image_file']['name']);
@@ -21,7 +21,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'create') {
             $image_path = 'uploads/' . $fileName;
         }
     } elseif (!empty($_POST['camera_image_data'])) {
-        // Handling tangkapan kamera (Base64)
         $data = $_POST['camera_image_data'];
         if (preg_match('/^data:image\/(\w+);base64,/', $data, $type_img)) {
             $data = substr($data, strpos($data, ',') + 1);
@@ -59,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $action === 'delete') {
     $id = $_POST['id'];
     $type = $_POST['type'] ?? 'personal';
 
-    // Hapus file gambar jika ada
+
     $stmt = $pdo->prepare("SELECT image FROM todos WHERE id = ?");
     $stmt->execute([$id]);
     $todo = $stmt->fetch();

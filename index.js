@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Dark Mode Toggle
     const theme_toggle_btn = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -16,7 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 2. Select Todo Item & Load Detail Panel
     const todoItems = document.querySelectorAll('.todo-item');
     const detailId = document.getElementById('detail-id');
     const detailTitle = document.getElementById('detail-title');
@@ -64,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 3. Quick Checkbox Toggle
     const checkboxes = document.querySelectorAll('.todo-checkbox');
     checkboxes.forEach(cb => {
         cb.addEventListener('change', async (e) => {
@@ -81,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 4. Camera Handling
     const videoElement = document.getElementById('camera-video');
     const cameraCanvas = document.getElementById('camera-canvas');
     const newImagePreview = document.getElementById('new-image-preview');

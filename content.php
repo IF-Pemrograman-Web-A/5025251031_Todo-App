@@ -9,7 +9,6 @@ $todos = $stmt->fetchAll();
 <main id="main-content" class="container" tabindex="-1">
     <?php include 'menu-bar.php'; ?>
 
-    <!-- Todo List Panel -->
     <section class="todo-panel" aria-labelledby="todo-heading">
         <h2 id="todo-heading"><?= ucfirst($current_type) ?> Todos</h2>
         <div id="todo-container" role="list">
@@ -36,7 +35,6 @@ $todos = $stmt->fetchAll();
     </section>
 
     <div class="right-column">
-        <!-- Detail Panel -->
         <aside class="detail-panel" aria-labelledby="detail-heading">
             <h2 id="detail-heading">Todo Detail</h2>
             <form id="detail-form" method="POST" action="actions.php">
@@ -72,7 +70,6 @@ $todos = $stmt->fetchAll();
             </form>
         </aside>
 
-        <!-- Form Tambah Todo -->
         <aside class="create-panel" aria-labelledby="create-heading">
             <h2 id="create-heading">Create New Todo</h2>
             <form id="create-todo-form" method="POST" action="actions.php" enctype="multipart/form-data">
@@ -91,7 +88,6 @@ $todos = $stmt->fetchAll();
                 <label for="new-notif-time">Waktu Notifikasi</label>
                 <input type="time" name="notif_time" id="new-notif-time">
 
-                <!-- PHP File Handling / Upload Gambar -->
                 <label for="new-image-file">Upload Gambar</label>
                 <input type="file" name="image_file" id="new-image-file" accept="image/*">
 

@@ -1,0 +1,23 @@
+{
+  "name": "Organizational Todo App",
+  "short_name": "TodoApp",
+  "description": "Aplikasi manajemen tugas organisasi offline-first",
+  "start_url": "index.php",
+  "display": "standalone",
+  "background_color": "#3aafa9",
+  "theme_color": "#0a403d",
+  "icons": [
+    {
+      "src": "img/img192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/img512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

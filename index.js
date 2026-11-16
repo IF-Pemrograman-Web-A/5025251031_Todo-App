@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+    const API_HEADERS = { 'X-API-Key': 'todo-key-2026' };
+
     const theme_toggle_btn = document.getElementById('theme-toggle');
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'dark') {
@@ -62,20 +65,52 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    const checkboxes = document.querySelectorAll('.todo-checkbox');
-    checkboxes.forEach(cb => {
+    document.querySelectorAll('.todo-checkbox').forEach(cb => {
         cb.addEventListener('change', async (e) => {
             const id = e.target.dataset.id;
-            const newStatus = e.target.checked ? 'completed' : 'not-started';
-
-            const formData = new FormData();
-            formData.append('action', 'toggle_status');
-            formData.append('id', id);
-            formData.append('status', newStatus);
-
-            await fetch('actions.php', { method: 'POST', body: formData });
+            const status = e.target.checked ? 'completed' : 'not-started';
+            await fetch(`api.php?id=${id}`, {
+                method: 'PATCH',
+                headers: { ...API_HEADERS, 'Content-Type': 'application/json' },
+                body: JSON.stringify({ status })
+            });
             window.location.reload();
         });
+    });
+
+    document.getElementById('create-todo-form')?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const res = await fetch('api.php', {
+            method: 'POST',
+            headers: API_HEADERS,
+            body: new FormData(e.target)
+        });
+        if (res.ok) window.location.reload();
+    });
+
+    btnSave?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const res = await fetch(`api.php?id=${detailId.value}`, {
+            method: 'PUT',
+            headers: { ...API_HEADERS, 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                title: detailTitle.value,
+                description: detailDesc.value,
+                deadline: detailDeadline.value,
+                notif_time: detailNotif.value,
+                status: detailStatus.value
+            })
+        });
+        if (res.ok) window.location.reload();
+    });
+
+    btnDelete?.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const res = await fetch(`api.php?id=${detailId.value}`, {
+            method: 'DELETE',
+            headers: API_HEADERS
+        });
+        if (res.ok) window.location.reload();
     });
 
     const videoElement = document.getElementById('camera-video');
